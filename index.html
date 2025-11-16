@@ -49,6 +49,12 @@
             padding: 40px;
             text-align: center;
             box-shadow: inset -1px -1px 0 #888, inset 1px 1px 0 #fff;
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+        .boot-panel.visible {
+            opacity: 1;
         }
 
         .boot-logo {
@@ -2257,13 +2263,20 @@ These systems laid the foundation for modern computing interfaces and user exper
 
         // Boot Sequence
         window.addEventListener('load', () => {
-            playSound('startup');
+            // First show wallpaper for 2.5 seconds
+            setTimeout(() => {
+                // Then show boot panel with fade-in
+                document.querySelector('.boot-panel').classList.add('visible');
+                playSound('startup');
+            }, 2500);
+
+            // Then transition to desktop after boot animation completes
             setTimeout(() => {
                 document.getElementById('boot-screen').classList.add('hidden');
                 document.getElementById('desktop').classList.add('active');
                 updateClock();
                 setInterval(updateClock, 1000);
-            }, 3500);
+            }, 6500); // 2500ms wallpaper + 4000ms boot panel animation
         });
 
         // Clock
