@@ -751,25 +751,25 @@
                 font-size: 11px;
             }
 
-            /* Windows - better mobile sizing */
+            /* Windows - iPhone optimized sizing */
             .window {
-                max-width: 95vw !important;
-                max-height: 85vh !important;
-                width: 90vw !important;
-                left: 5vw !important;
-                top: 50px !important;
+                max-width: 90vw !important;
+                max-height: 70vh !important;
+                width: 88vw !important;
+                left: 6vw !important;
+                top: 45px !important;
             }
 
             .window-titlebar {
-                height: 44px;
-                min-height: 44px;
-                padding: 0 4px;
+                height: 38px;
+                min-height: 38px;
+                padding: 0 3px;
             }
 
             .window-close {
-                width: 36px;
-                height: 36px;
-                margin: 0 4px;
+                width: 30px;
+                height: 30px;
+                margin: 0 3px;
                 border: 2px solid #000;
                 display: flex;
                 align-items: center;
@@ -778,116 +778,140 @@
             }
 
             .window-close::after {
-                font-size: 24px;
+                font-size: 18px;
                 font-weight: bold;
             }
 
             .window-title {
-                font-size: 13px;
-            }
-
-            .window-content {
-                height: calc(100% - 44px);
-            }
-
-            /* Folder grids - better spacing */
-            .folder-grid {
-                grid-template-columns: repeat(auto-fill, 80px);
-                gap: 12px;
-                padding: 15px;
-            }
-
-            .folder-item {
-                padding: 8px;
-            }
-
-            .folder-icon {
-                width: 48px;
-                height: 48px;
-                font-size: 28px;
-            }
-
-            .folder-name {
                 font-size: 11px;
             }
 
-            /* Modal - larger buttons */
+            .window-content {
+                height: calc(100% - 38px);
+                padding: 6px;
+            }
+
+            /* Folder grids - compact spacing */
+            .folder-grid {
+                grid-template-columns: repeat(auto-fill, 70px);
+                gap: 8px;
+                padding: 8px;
+            }
+
+            .folder-item {
+                padding: 5px;
+            }
+
+            .folder-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+
+            .folder-name {
+                font-size: 9px;
+            }
+
+            /* Modal - compact buttons */
+            .modal-dialog {
+                padding: 12px;
+                min-width: 240px;
+            }
+
             .modal-button {
-                padding: 10px 25px;
-                font-size: 14px;
-                min-height: 44px;
-                min-width: 80px;
+                padding: 8px 18px;
+                font-size: 13px;
+                min-height: 38px;
+                min-width: 70px;
             }
 
             .modal-close {
-                width: 44px;
-                height: 44px;
-                font-size: 24px;
-                top: 5px;
-                right: 5px;
+                width: 36px;
+                height: 36px;
+                font-size: 20px;
+                top: 4px;
+                right: 4px;
                 border: 2px solid #000;
                 touch-action: manipulation;
             }
 
-            /* Calculator - larger buttons */
+            .modal-text {
+                font-size: 13px;
+            }
+
+            /* Calculator - compact size */
             .calculator {
-                width: 280px !important;
+                width: 240px !important;
             }
 
             .calc-button {
-                padding: 12px;
-                font-size: 16px;
-                min-height: 48px;
+                padding: 8px;
+                font-size: 14px;
+                min-height: 40px;
             }
 
             .calc-display {
-                font-size: 24px;
-                padding: 15px;
+                font-size: 20px;
+                padding: 10px;
             }
 
             /* Main Mac GIF */
             .main-mac-gif {
-                width: 80px;
-                bottom: 80px;
-                left: 10px;
+                width: 70px;
+                bottom: 75px;
+                left: 8px;
             }
 
             /* Text editor */
             .text-editor {
-                width: 90vw !important;
-                height: 70vh !important;
+                width: 88vw !important;
+                height: 65vh !important;
             }
 
             .text-content {
-                font-size: 14px;
+                font-size: 13px;
+                padding: 8px;
             }
 
             /* Image viewer */
-            .image-viewer img {
-                max-width: 100%;
-                max-height: 60vh;
+            .image-viewer {
+                padding: 4px;
             }
 
-            /* Music player buttons */
+            .image-viewer img {
+                max-width: 100%;
+                max-height: 55vh;
+            }
+
+            /* Music player */
+            .music-player h3 {
+                font-size: 14px;
+                margin: 8px 0;
+            }
+
+            .music-player {
+                padding: 8px;
+            }
+
             .player-button {
-                padding: 12px 16px;
-                font-size: 24px;
-                min-height: 48px;
-                min-width: 48px;
+                padding: 8px 12px;
+                font-size: 20px;
+                min-height: 40px;
+                min-width: 40px;
             }
 
             /* Network list items */
             .network-item {
-                padding: 12px;
-                min-height: 48px;
-                font-size: 14px;
+                padding: 8px;
+                min-height: 40px;
+                font-size: 12px;
             }
 
             /* Track list items */
             .track-item {
-                padding: 12px;
-                min-height: 48px;
-                font-size: 13px;
+                padding: 8px;
+                min-height: 40px;
+                font-size: 12px;
             }
         }
 
@@ -934,46 +958,116 @@
             }
 
             .folder-grid {
-                grid-template-columns: repeat(auto-fill, 70px);
-                gap: 8px;
-                padding: 10px;
+                grid-template-columns: repeat(auto-fill, 65px);
+                gap: 6px;
+                padding: 6px;
             }
 
             .folder-icon {
-                width: 42px;
-                height: 42px;
-                font-size: 24px;
+                width: 38px;
+                height: 38px;
+                font-size: 22px;
+            }
+
+            .folder-name {
+                font-size: 8px;
             }
 
             .boot-logo {
-                width: 120px;
+                width: 110px;
             }
 
             .boot-panel {
-                padding: 15px 10px;
+                padding: 12px 8px;
             }
 
             .boot-text {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .main-mac-gif {
-                width: 60px;
-                bottom: 70px;
+                width: 55px;
+                bottom: 65px;
             }
 
             .window {
-                width: 95vw !important;
-                max-width: 95vw !important;
+                width: 92vw !important;
+                max-width: 92vw !important;
+                max-height: 68vh !important;
+                left: 4vw !important;
+                top: 40px !important;
+            }
+
+            .window-titlebar {
+                height: 36px;
+                min-height: 36px;
+            }
+
+            .window-close {
+                width: 28px;
+                height: 28px;
+            }
+
+            .window-close::after {
+                font-size: 16px;
+            }
+
+            .window-title {
+                font-size: 10px;
+            }
+
+            .window-content {
+                height: calc(100% - 36px);
+                padding: 5px;
             }
 
             .calculator {
-                width: 260px !important;
+                width: 220px !important;
             }
 
             .calc-button {
+                padding: 6px;
+                font-size: 13px;
+                min-height: 36px;
+            }
+
+            .calc-display {
+                font-size: 18px;
+                padding: 8px;
+            }
+
+            .modal-dialog {
                 padding: 10px;
-                font-size: 14px;
+                min-width: 200px;
+            }
+
+            .modal-button {
+                padding: 7px 15px;
+                font-size: 12px;
+                min-height: 36px;
+            }
+
+            .modal-close {
+                width: 32px;
+                height: 32px;
+                font-size: 18px;
+            }
+
+            .text-content {
+                font-size: 12px;
+            }
+
+            .player-button {
+                padding: 6px 10px;
+                font-size: 18px;
+                min-height: 36px;
+                min-width: 36px;
+            }
+
+            .track-item, .network-item {
+                padding: 6px;
+                min-height: 36px;
+                font-size: 11px;
             }
         }
 
