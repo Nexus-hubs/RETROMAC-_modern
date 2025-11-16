@@ -2263,12 +2263,12 @@ These systems laid the foundation for modern computing interfaces and user exper
 
         // Boot Sequence
         window.addEventListener('load', () => {
-            // First show wallpaper for 2.5 seconds
+            // First show wallpaper for 1.5 seconds
             setTimeout(() => {
                 // Then show boot panel with fade-in
                 document.querySelector('.boot-panel').classList.add('visible');
                 playSound('startup');
-            }, 2500);
+            }, 1500);
 
             // Then transition to desktop after boot animation completes
             setTimeout(() => {
@@ -2276,7 +2276,7 @@ These systems laid the foundation for modern computing interfaces and user exper
                 document.getElementById('desktop').classList.add('active');
                 updateClock();
                 setInterval(updateClock, 1000);
-            }, 6500); // 2500ms wallpaper + 4000ms boot panel animation
+            }, 5500); // 1500ms wallpaper + 4000ms boot panel animation
         });
 
         // Clock
