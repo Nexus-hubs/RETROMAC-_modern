@@ -666,63 +666,297 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            /* Boot screen optimization */
+            #boot-screen {
+                background-size: cover;
+                background-position: center;
+            }
+
+            .boot-panel {
+                padding: 20px 15px;
+                max-width: 90vw;
+            }
+
+            .boot-logo {
+                width: 150px;
+            }
+
+            /* Menu bar - larger touch targets */
             .menu-bar {
-                font-size: 10px;
+                font-size: 11px;
+                height: 36px;
+                padding: 0 8px;
             }
 
             .menu-item {
-                padding: 2px 5px;
+                padding: 6px 8px;
+                min-height: 36px;
+                display: flex;
+                align-items: center;
+            }
+
+            .apple-logo {
+                padding: 6px 10px;
+            }
+
+            /* Dropdown menus - larger for touch */
+            .dropdown-menu {
+                min-width: 180px;
+            }
+
+            .dropdown-item {
+                padding: 10px 15px;
+                font-size: 12px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+
+            /* Desktop icons - repositioned for mobile */
+            .desktop-icon {
+                width: 80px;
+                padding: 8px;
+            }
+
+            .desktop-icon[style*="right: 20px"] {
+                right: 10px !important;
+            }
+
+            .icon-image {
+                width: 48px;
+                height: 48px;
+                font-size: 28px;
+            }
+
+            .icon-label {
+                font-size: 11px;
+            }
+
+            /* Windows - better mobile sizing */
+            .window {
+                max-width: 95vw !important;
+                max-height: 85vh !important;
+                width: 90vw !important;
+                left: 5vw !important;
+                top: 50px !important;
+            }
+
+            .window-titlebar {
+                height: 32px;
+                min-height: 32px;
+            }
+
+            .window-close {
+                width: 24px;
+                height: 24px;
+                margin: 0 4px;
+            }
+
+            .window-title {
+                font-size: 13px;
+            }
+
+            /* Folder grids - better spacing */
+            .folder-grid {
+                grid-template-columns: repeat(auto-fill, 80px);
+                gap: 12px;
+                padding: 15px;
+            }
+
+            .folder-item {
+                padding: 8px;
+            }
+
+            .folder-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 28px;
+            }
+
+            .folder-name {
+                font-size: 11px;
+            }
+
+            /* Modal - larger buttons */
+            .modal-button {
+                padding: 10px 25px;
+                font-size: 14px;
+                min-height: 44px;
+                min-width: 80px;
+            }
+
+            .modal-close {
+                width: 32px;
+                height: 32px;
+                font-size: 18px;
+            }
+
+            /* Calculator - larger buttons */
+            .calculator {
+                width: 280px !important;
+            }
+
+            .calc-button {
+                padding: 12px;
+                font-size: 16px;
+                min-height: 48px;
+            }
+
+            .calc-display {
+                font-size: 24px;
+                padding: 15px;
+            }
+
+            /* Main Mac GIF */
+            .main-mac-gif {
+                width: 80px;
+                bottom: 80px;
+                left: 10px;
+            }
+
+            /* Text editor */
+            .text-editor {
+                width: 90vw !important;
+                height: 70vh !important;
+            }
+
+            .text-content {
+                font-size: 14px;
+            }
+
+            /* Image viewer */
+            .image-viewer img {
+                max-width: 100%;
+                max-height: 60vh;
+            }
+
+            /* Music player buttons */
+            .player-button {
+                padding: 12px 16px;
+                font-size: 24px;
+                min-height: 48px;
+                min-width: 48px;
+            }
+
+            /* Network list items */
+            .network-item {
+                padding: 12px;
+                min-height: 48px;
+                font-size: 14px;
+            }
+
+            /* Track list items */
+            .track-item {
+                padding: 12px;
+                min-height: 48px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Very small screens */
+            .menu-bar {
+                font-size: 10px;
+                height: 32px;
+            }
+
+            .menu-item {
+                padding: 4px 6px;
+                font-size: 10px;
+            }
+
+            .menu-clock {
+                display: none;
             }
 
             .desktop-icon {
                 width: 70px;
             }
 
+            .desktop-icon[style*="top: 140px"] {
+                top: 120px !important;
+            }
+
+            .desktop-icon[style*="top: 240px"] {
+                top: 190px !important;
+            }
+
+            .desktop-icon[style*="top: 340px"] {
+                top: 260px !important;
+            }
+
             .icon-image {
-                width: 40px;
-                height: 40px;
+                width: 42px;
+                height: 42px;
                 font-size: 24px;
             }
 
-            .window {
-                max-width: 95vw !important;
-                max-height: 80vh !important;
-            }
-
-            .main-mac-gif {
-                width: 100px;
-                bottom: 10px;
-                left: 10px;
-            }
-
-            .calc-button {
-                padding: 8px;
-                font-size: 12px;
-            }
-
-            .boot-panel {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .menu-clock {
-                display: none;
+            .icon-label {
+                font-size: 10px;
             }
 
             .folder-grid {
                 grid-template-columns: repeat(auto-fill, 70px);
-                gap: 5px;
+                gap: 8px;
+                padding: 10px;
+            }
+
+            .folder-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 24px;
+            }
+
+            .boot-logo {
+                width: 120px;
+            }
+
+            .boot-panel {
+                padding: 15px 10px;
+            }
+
+            .boot-text {
+                font-size: 14px;
+            }
+
+            .main-mac-gif {
+                width: 60px;
+                bottom: 70px;
+            }
+
+            .window {
+                width: 95vw !important;
+                max-width: 95vw !important;
+            }
+
+            .calculator {
+                width: 260px !important;
+            }
+
+            .calc-button {
+                padding: 10px;
+                font-size: 14px;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-width: 896px) and (orientation: landscape) {
+            .window {
+                max-height: 75vh !important;
+                top: 40px !important;
             }
 
             .desktop-icon {
-                width: 60px;
+                width: 65px;
             }
 
             .icon-image {
-                width: 35px;
-                height: 35px;
-                font-size: 20px;
+                width: 40px;
+                height: 40px;
+            }
+
+            .main-mac-gif {
+                display: none;
             }
         }
     </style>
@@ -1538,6 +1772,31 @@ These systems laid the foundation for modern computing interfaces and user exper
     </div>
 
     <script>
+        // Mobile detection and optimization
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const isTablet = /iPad|Android/i.test(navigator.userAgent) && window.innerWidth >= 768;
+
+        // Prevent zoom on double-tap for iOS
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function(event) {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, { passive: false });
+
+        // Mobile-specific window positioning
+        function getMobileWindowPosition() {
+            if (isMobile && window.innerWidth <= 768) {
+                return {
+                    left: Math.max(5, (window.innerWidth - 300) / 2),
+                    top: 50
+                };
+            }
+            return null;
+        }
+
         // Audio Context for Sound Effects
         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -1757,7 +2016,18 @@ These systems laid the foundation for modern computing interfaces and user exper
             });
         });
 
+        // Close menus when clicking/tapping outside
         document.addEventListener('click', (e) => {
+            if (!e.target.closest('.menu-item') && !e.target.closest('.dropdown-menu')) {
+                document.querySelectorAll('.dropdown-menu, .menu-item').forEach(el => {
+                    el.classList.remove('active');
+                });
+                activeMenu = null;
+            }
+        });
+
+        // Also handle touch events for mobile
+        document.addEventListener('touchstart', (e) => {
             if (!e.target.closest('.menu-item') && !e.target.closest('.dropdown-menu')) {
                 document.querySelectorAll('.dropdown-menu, .menu-item').forEach(el => {
                     el.classList.remove('active');
@@ -1786,6 +2056,16 @@ These systems laid the foundation for modern computing interfaces and user exper
             playSound('open');
             const win = document.getElementById(windowId);
             win.classList.add('active');
+
+            // On mobile, center windows and ensure they fit
+            if (isMobile && window.innerWidth <= 768) {
+                const mobilePos = getMobileWindowPosition();
+                if (mobilePos) {
+                    win.style.left = mobilePos.left + 'px';
+                    win.style.top = mobilePos.top + 'px';
+                }
+            }
+
             focusWindow(windowId);
         }
 
