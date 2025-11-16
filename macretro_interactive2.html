@@ -514,6 +514,33 @@
             display: block;
         }
 
+        /* Apple Logo at Bottom Center */
+        .apple-logo-bottom {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .apple-logo-bottom:hover {
+            opacity: 1;
+        }
+
+        .apple-logo-bottom img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.3));
+        }
+
         /* Modal Dialog */
         .modal-overlay {
             position: fixed;
@@ -685,10 +712,11 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            /* Boot screen optimization */
+            /* Boot screen optimization - better wallpaper display */
             #boot-screen {
                 background-size: cover;
-                background-position: center;
+                background-position: center center;
+                background-attachment: scroll;
             }
 
             .boot-panel {
@@ -862,6 +890,22 @@
                 left: 8px;
             }
 
+            /* Apple Logo - mobile */
+            .apple-logo-bottom {
+                width: 45px;
+                height: 45px;
+                bottom: 10px;
+            }
+
+            /* Adjust desktop icons for mobile */
+            .desktop-icon[style*="top: 440px"] {
+                top: 330px !important;
+            }
+
+            .desktop-icon[style*="top: 540px"] {
+                top: 400px !important;
+            }
+
             /* Text editor */
             .text-editor {
                 width: 88vw !important;
@@ -947,6 +991,14 @@
                 top: 260px !important;
             }
 
+            .desktop-icon[style*="top: 440px"] {
+                top: 330px !important;
+            }
+
+            .desktop-icon[style*="top: 540px"] {
+                top: 400px !important;
+            }
+
             .icon-image {
                 width: 42px;
                 height: 42px;
@@ -988,6 +1040,12 @@
             .main-mac-gif {
                 width: 55px;
                 bottom: 65px;
+            }
+
+            .apple-logo-bottom {
+                width: 38px;
+                height: 38px;
+                bottom: 8px;
             }
 
             .window {
@@ -1212,6 +1270,18 @@
             <div class="icon-label">TeachText</div>
         </div>
 
+        <div class="desktop-icon" style="top: 440px; right: 20px;" data-icon="paint" ondblclick="openWindow('paint-app')">
+            <div class="icon-image">
+                <img src="computer_paint.png" alt="Paint">
+            </div>
+            <div class="icon-label">Paint</div>
+        </div>
+
+        <div class="desktop-icon" style="top: 540px; right: 20px;" data-icon="help" ondblclick="openWindow('help-center')">
+            <div class="icon-image">❓</div>
+            <div class="icon-label">Help</div>
+        </div>
+
         <div class="desktop-icon" style="bottom: 40px; right: 20px;" data-icon="trash" ondblclick="showAlert('Trash is empty')">
             <div class="icon-image">
                 <img src="trash.png" alt="Trash">
@@ -1222,6 +1292,11 @@
         <!-- Main Mac GIF -->
         <div class="main-mac-gif">
             <img src="MAIN%20MAC.gif" alt="Main Mac">
+        </div>
+
+        <!-- Apple Logo at Bottom Center -->
+        <div class="apple-logo-bottom">
+            <img src="mac.png" alt="Apple Logo">
         </div>
 
         <!-- Windows -->
@@ -1911,6 +1986,68 @@ These systems laid the foundation for modern computing interfaces and user exper
             </div>
             <div class="window-content image-viewer">
                 <img id="viewed-image" src="" alt="Viewed Image">
+            </div>
+        </div>
+
+        <!-- Paint App Window -->
+        <div class="window" id="paint-app" style="left: 180px; top: 120px; width: 500px; height: 450px;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'paint-app')" ontouchstart="startDrag(event, 'paint-app')">
+                <div class="window-close" onclick="closeWindow('paint-app')"></div>
+                <div class="window-title">Classic Paint</div>
+            </div>
+            <div class="window-content" style="text-align: center; padding: 20px;">
+                <div style="margin-bottom: 20px;">
+                    <img src="computer_paint.png" alt="Paint Application" style="max-width: 100%; height: auto; border: 2px solid #000;">
+                </div>
+                <div style="font-size: 14px; line-height: 1.6;">
+                    <p><strong>🎨 Classic Mac Paint</strong></p>
+                    <p>This is a recreation of the classic Macintosh painting application.</p>
+                    <p>Original features included:</p>
+                    <ul style="text-align: left; display: inline-block; margin: 10px auto;">
+                        <li>Brush and pencil tools</li>
+                        <li>Spray paint and fill bucket</li>
+                        <li>Geometric shapes</li>
+                        <li>Selection and eraser</li>
+                        <li>Pattern fills</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-size: 12px; color: #666;">
+                        In this simulation, you're viewing a screenshot of the classic application.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Center Window -->
+        <div class="window" id="help-center" style="left: 200px; top: 140px; width: 480px; height: 400px;">
+            <div class="window-titlebar" onmousedown="startDrag(event, 'help-center')" ontouchstart="startDrag(event, 'help-center')">
+                <div class="window-close" onclick="closeWindow('help-center')"></div>
+                <div class="window-title">Help & Questions</div>
+            </div>
+            <div class="window-content" style="padding: 20px;">
+                <h3 style="margin-top: 0; font-size: 16px; border-bottom: 2px solid #000; padding-bottom: 5px;">❓ Frequently Asked Questions</h3>
+
+                <div style="margin: 15px 0;">
+                    <p style="font-weight: bold; margin: 8px 0;">Q: How do I open items?</p>
+                    <p style="margin: 5px 0 15px 15px;">A: Double-click desktop icons or folder items to open them. On mobile, double-tap.</p>
+
+                    <p style="font-weight: bold; margin: 8px 0;">Q: How do I close windows?</p>
+                    <p style="margin: 5px 0 15px 15px;">A: Click/tap the × button in the top-left corner of any window.</p>
+
+                    <p style="font-weight: bold; margin: 8px 0;">Q: How do I move windows?</p>
+                    <p style="margin: 5px 0 15px 15px;">A: Click and drag the title bar of any window to move it around.</p>
+
+                    <p style="font-weight: bold; margin: 8px 0;">Q: What can I do with the menu bar?</p>
+                    <p style="margin: 5px 0 15px 15px;">A: Use File, Edit, View, and Special menus for various functions like opening windows, managing files, and system controls.</p>
+
+                    <p style="font-weight: bold; margin: 8px 0;">Q: Is this a real Mac OS?</p>
+                    <p style="margin: 5px 0 15px 15px;">A: No, this is an HTML/JavaScript simulation inspired by classic Mac OS (System 7 - Mac OS 8).</p>
+                </div>
+
+                <div style="margin-top: 20px; padding: 10px; background: #e0e0e0; border: 1px solid #999;">
+                    <p style="margin: 0; font-size: 12px; text-align: center;">
+                        <strong>💡 Tip:</strong> Explore all the folders and try the Calculator and Music Player!
+                    </p>
+                </div>
             </div>
         </div>
     </div>
