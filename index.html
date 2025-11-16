@@ -267,10 +267,28 @@
             margin: 0 3px;
             cursor: pointer;
             background: #fff;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .window-close::after {
+            content: '×';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            line-height: 1;
+            color: #000;
+            font-weight: bold;
         }
 
         .window-close:hover {
             background: #000;
+        }
+
+        .window-close:hover::after {
+            color: #fff;
         }
 
         .window-title {
@@ -743,18 +761,33 @@
             }
 
             .window-titlebar {
-                height: 32px;
-                min-height: 32px;
+                height: 44px;
+                min-height: 44px;
+                padding: 0 4px;
             }
 
             .window-close {
-                width: 24px;
-                height: 24px;
+                width: 36px;
+                height: 36px;
                 margin: 0 4px;
+                border: 2px solid #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                touch-action: manipulation;
+            }
+
+            .window-close::after {
+                font-size: 24px;
+                font-weight: bold;
             }
 
             .window-title {
                 font-size: 13px;
+            }
+
+            .window-content {
+                height: calc(100% - 44px);
             }
 
             /* Folder grids - better spacing */
@@ -787,9 +820,13 @@
             }
 
             .modal-close {
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
+                width: 44px;
+                height: 44px;
+                font-size: 24px;
+                top: 5px;
+                right: 5px;
+                border: 2px solid #000;
+                touch-action: manipulation;
             }
 
             /* Calculator - larger buttons */
@@ -2140,6 +2177,29 @@ These systems laid the foundation for modern computing interfaces and user exper
             win.addEventListener('touchstart', () => focusWindow(win.id));
         });
 
+        // Enhanced close button support for mobile
+        document.querySelectorAll('.window-close').forEach(closeBtn => {
+            // Add touch event support
+            closeBtn.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                // Get the window ID from the onclick attribute
+                const onclickAttr = closeBtn.getAttribute('onclick');
+                if (onclickAttr) {
+                    const windowId = onclickAttr.match(/closeWindow\('([^']+)'\)/);
+                    if (windowId && windowId[1]) {
+                        closeWindow(windowId[1]);
+                    }
+                }
+            });
+
+            // Prevent drag from starting on close button
+            closeBtn.addEventListener('touchstart', (e) => {
+                e.stopPropagation();
+            });
+        });
+
         function startDrag(e, windowId) {
             e.preventDefault();
             if (e.target.classList.contains('window-close')) return;
@@ -2307,6 +2367,29 @@ These systems laid the foundation for modern computing interfaces and user exper
             playSound('click');
             document.getElementById('modal').classList.remove('active');
         }
+
+        // Close modal when tapping outside on mobile
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') {
+                closeModal();
+            }
+        });
+
+        document.getElementById('modal').addEventListener('touchend', (e) => {
+            if (e.target.id === 'modal') {
+                e.preventDefault();
+                closeModal();
+            }
+        });
+
+        // Enhanced modal close button for mobile
+        document.querySelectorAll('.modal-close').forEach(closeBtn => {
+            closeBtn.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closeModal();
+            });
+        });
 
         // Trash Functions
         function emptyTrash() {
