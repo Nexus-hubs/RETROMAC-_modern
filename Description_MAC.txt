@@ -1,0 +1,182 @@
+⟡ overview
+
+design an interactive single-page html experience that simulates using a classic macintosh desktop from the late 80s and 90s. the page opens directly into a retro desktop environment, with pixel-perfect windows, menus, icons, and gray patterned backgrounds inspired by system 6 through mac os 8. the goal is to feel like the user is sitting at an old mac, with functioning apps, opening and closing folders, basic utilities, and authentic sounds triggered by every interaction.
+
+the whole simulation runs inside the browser with no scrolling: everything happens in movable, resizable windows that float above a static desktop.
+
+❖ boot sequence and startup experience
+
+when the user first loads the page, they do not see the desktop immediately. instead, show a full-screen “startup” sequence modeled after classic mac os:
+
+• a solid gray or light blue background
+• a centered boot panel with the mac os logo and “starting up…” text
+• an animated progress bar slowly filling
+• retro pixel fonts and low-resolution logos
+
+while this runs, play a soft, chime-like startup sound reminiscent of old macs, followed by a faint background hum, like an old crt and internal fan. after a few seconds, fade from the startup screen into the main desktop.
+
+✦ main desktop layout
+
+the desktop is a flat, slightly textured gray or blue screen. on top:
+
+• a classic menu bar across the very top in black and white, with apple logo in the far left and menu titles “file”, “edit”, “view”, “label”, “special”. hovering over each menu highlights it; clicking opens dropdown menus with period-appropriate options (open, close, eject, about this macintosh, restart, etc.).
+
+• the time is shown in the top right in a small bitmap font (e.g., “7:48 pm”). the clock updates in real time.
+
+on the desktop itself, show a few icons aligned to the right side, similar to the screenshots:
+
+• “macintosh disk” with a floppy-disk style icon
+• “disk tools”, “control panels”, “teachtext”, “trash” in the bottom-right corner
+
+each icon has a label in chicago-style bitmap font. when the user single-clicks an icon, it becomes highlighted. double-click opens a new window corresponding to that item, with a brief fade or pop sound.
+
+❖ system folder and finder windows
+
+clicking “macintosh disk” opens a classic finder window:
+
+• title bar at the top with the name of the folder, small close box on the left, zoom and collapse controls
+• inside, a white content area listing icons in a grid: “system folder”, “applications”, “ev sounds”, “ev music”, etc.
+
+opening “system folder” creates another overlapping window, just like in the screenshot. within that, include:
+
+• extensions
+• apple menu items
+• control panels
+• fonts
+• preferences
+• control strip modules
+• shutdown items
+• startup items
+• printmonitor documents
+
+hover states: icons slightly invert colors when hovered. clicking gives a satisfying “click” sound. opening a folder plays a short “whoosh” or “window open” effect. closing windows plays a soft “clack”.
+
+users can drag windows by the title bar and bring them to the front. clicking in a window makes its title bar darker, showing focus.
+
+✦ apple menu items window
+
+double-clicking “apple menu items” opens another window like in the reference image. it contains icons:
+
+• apple system profiler
+• calculator
+• control panels
+• favorites
+• recent applications
+• network browser
+• chooser
+• key caps
+• apple dvd player
+
+each icon is clickable and launches a small “app” window with simple but functional behavior. the icons should resemble the originals: tiny computers for network browser, calculator keypad symbol, etc.
+
+❖ calculator application
+
+the calculator app opens a narrow vertical window identical to the screenshot:
+
+• monochrome background with a segmented display at the top
+• square buttons arranged in a grid: numbers, “c”, “/”, “*”, “+”, “−”, “.”
+
+the calculator works like a basic four-function calculator. clicking buttons plays a tiny keypress beep. pressing keyboard numbers and operators also inputs values. the display uses a dark pixel font on a light background, matching retro style.
+
+✦ about this macintosh window
+
+from the “apple” menu in the top bar, selecting “about this macintosh” opens a floating information window:
+
+• shows “system software 7.5.3 revision 2” or similar
+• displays the classic memory bar with “total memory” and “largest unused block” in kilobytes
+• includes a small mac icon on the left
+
+in the simulation, these numbers can be fake but plausible. hovering over them can show tooltips explaining what they would have meant on legacy hardware.
+
+❖ floppy disks and file actions
+
+the “macintosh disk” and floppy icons can be interacted with:
+
+• double-click to open a window that lists files, including a sample document and an image.
+• clicking and dragging the disk icon onto the “trash” triggers an animation that simulates ejecting the disk, and plays an eject sound. after “eject,” the disk icon fades slightly or disappears until “reinserted” via a menu option like “special → insert disk”.
+
+for fun, add a “history.txt” icon in a window, which when opened displays a text view with a short, lore-like note describing early macintosh history.
+
+✦ menu bar functions
+
+each menu provides minimal but consistent functionality:
+
+• file: open, close, close all, print (print just pops up a message explaining printing is simulated), eject
+• edit: copy, paste, select all (these work inside the text areas such as teachtext documents or the history file)
+• view: icon view vs list view toggle inside finder windows; selecting one rearranges the folder contents and plays a subtle sound
+• label: lets user change the “label color” of selected icons; the label text color or tiny square indicator changes
+• special: restart, shut down, empty trash. restart replays the startup sequence. empty trash plays a crunchy, pixelated sound and briefly animates the trash can.
+
+❖ network browser and offline illusion
+
+the “network browser” icon opens a small window with two tiny computer icons connected by a line, matching the reference. inside, show a fake list of “local servers” or “classic websites” with names like “retro_bbs”, “applelink”, “old_web_archive”. clicking them just shows a message: “this simulation runs offline, but this is where network volumes would appear on a vintage mac.”
+
+to reinforce the retro mood, simulate very short “connecting…” messages and tiny modem-style sound bursts when these hyperlinks are clicked.
+
+✦ sounds and ambient audio
+
+sound is a central part of the experience. include:
+
+• startup chime when the system boots
+• soft keypress and click sounds for all button and menu interactions
+• a light “whoosh” or “thunk” when windows open and close
+• a short alert beep when the user tries an invalid action (for example, emptying the trash while it is already empty)
+
+optionally, provide a very subtle loop of ambient room noise or low computer fan hum that can be toggled on and off using a small speaker icon in the menu bar.
+
+all sounds should be short, low-bit-rate, and slightly compressed to feel era-accurate.
+
+❖ teachtext and retro documents
+
+a “teachtext” icon or menu item opens a simple document window that mimics the old mac text editor:
+
+• plain white page, simple bitmap font, small scroll bar
+• top bar with “file”, “edit”, “font”, “size” inside the window
+
+preload a short retro tutorial titled “welcome to your classic mac simulation”, explaining tips like double-clicking icons, dragging windows, and using the apple menu. users can edit this text in the browser, copy, paste, and undo.
+
+✦ wallpapers and versions
+
+offer an optional “appearance” or “control panels → desktop patterns” window that lets the user switch backgrounds between:
+
+• monochrome dithered gray (system 6 style)
+• light gray with simple noise
+• blue mac os 8 wallpaper with repeated “mac os” logo, similar to the screenshot
+
+each selection is applied immediately, with a small “apply” click sound.
+
+❖ status bar icons and dock-like strip
+
+at the bottom of the screen, optionally include a thin icon strip that feels like a proto-dock. it shows tiny icons for:
+
+• finder
+• calculator
+• network browser
+• ev sounds
+• ev music
+• a smiling mac face that opens the “about this macintosh” window
+
+hovering over these icons shows small tooltips and plays a hover sound. clicking focuses or reopens the associated app.
+
+✦ error messages and dialogs
+
+when the user tries unsupported actions, show authentic modal dialogs:
+
+• gray rectangular alert windows with a warning icon and text like “this feature is not implemented in the simulation.”
+• buttons such as “ok” and “help”.
+
+clicking these buttons plays a classic alert sound. dialogs block the rest of the interface until dismissed.
+
+❖ shutdown experience
+
+selecting “shut down” from the “special” menu starts a shutdown sequence:
+
+• all windows fade out
+• desktop icons disappear
+• a centered screen appears with a simple message like “you may now switch off your macintosh html simulation”
+
+a soft power-off sound plays, and the screen slowly fades to black. from there, clicking anywhere restarts the boot sequence and returns to the desktop.
+
+⟡ summary
+
+the final html simulation should feel like a fully interactive classic macintosh environment: overlapping windows, authentic icons and menus based on the provided images, basic working utilities such as calculator and text editor, simulated disks and network tools, and an audio layer that includes startup chimes, clicks, and alerts. everything functions inside the browser but behaves as if the user is operating a retro computer, capturing both the aesthetic and the limited yet charming capabilities of that era.
